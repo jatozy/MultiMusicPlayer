@@ -9,6 +9,6 @@ COPY android-studio.desktop /root/.local/share/applications/android-studio.deskt
 ENV PATH="/opt/android-studio/bin:/opt/android-sdk/cmdline-tools/tools/bin/:${PATH}"
 
 RUN mkdir /sdk && chmod 666 /sdk
-RUN mkdir /app && chmod 666 /app
+RUN mkdir /workspace && chmod 666 /workspace
 
-WORKDIR /app
+WORKDIR /workspace

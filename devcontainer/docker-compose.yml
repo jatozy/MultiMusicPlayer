@@ -9,6 +9,6 @@ services:
     ports:
       - 5901:5901
     volumes:
-      - ../app:/app:rw
+      - ../workspace:/workspace:rw
       - ../sdk:/sdk:rw
       - ./vncrc:/root/.vncrc:ro
