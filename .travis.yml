@@ -6,4 +6,4 @@ android:
 
 script:
   - cd UltimatePlaylist
-  - ./gradlew build
+  - gradle build
