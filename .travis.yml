@@ -1,0 +1,9 @@
+language: android
+dist: trusty
+android:
+  components:
+    - android-30
+
+script:
+  - cd UltimatePlaylist
+  - gradlew build
