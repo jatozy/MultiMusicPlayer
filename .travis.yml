@@ -6,7 +6,8 @@ android:
     - android-30
 
 before_install:
-  - yes | sdkmanager --licenses
+  - echo yes | sdkmanager "build-tools;30.0.2"
+  - echo yes | sdkmanager "android:30"
 
 script:
   - cd UltimatePlaylist
