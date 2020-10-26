@@ -6,3 +6,7 @@ emulator
 /sdk/skins/pixel_3a/port_fore.webp
 /sdk/skins/pixel_3a/rounded_corners.webp
 /sdk/system-images
+/sdk/.temp
+/sdk/tools
+/sdk/skins
+/sdk/extras/intel
