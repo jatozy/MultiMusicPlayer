@@ -1,26 +1,38 @@
 package de.jato_engineering.ultimateplaylist
 
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import de.jato_engineering.ultimateplaylist.fragments.HomeFragment
+import de.jato_engineering.ultimateplaylist.fragments.PlaylistFragment
+import de.jato_engineering.ultimateplaylist.fragments.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        val homeFragment = HomeFragment()
+        val playlistFragment = PlaylistFragment()
+        val settingsFragment = SettingsFragment()
+
+        makeCurrentFragment(homeFragment)
+
+        val navigationBar = findViewById<BottomNavigationView>(R.id.main_navigation_bar)
+        navigationBar.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.navigation_bar_home_view -> makeCurrentFragment(homeFragment)
+                R.id.navigation_bar_playlist_view -> makeCurrentFragment(playlistFragment)
+                R.id.navigation_bar_settings_view -> makeCurrentFragment(settingsFragment)
+            }
+            true
+        }
     }
+
+    private fun makeCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.pages_area, fragment)
+            commit()
+        }
 }

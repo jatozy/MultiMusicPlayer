@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_bar_home_view"
+        android:icon="@drawable/ic_home_view"
+        android:title="@string/view_home" />
+
+    <item
+        android:id="@+id/navigation_bar_playlist_view"
+        android:icon="@drawable/ic_playlist_view"
+        android:title="@string/view_playlist" />
+
+    <item
+        android:id="@+id/navigation_bar_settings_view"
+        android:icon="@drawable/ic_settings_view"
+        android:title="@string/view_settings" />
+</menu>
